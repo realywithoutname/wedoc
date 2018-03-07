@@ -25,8 +25,10 @@ module.exports = {
       加入我们: 'https://job.youzan.com'
     }
   },
+  plugins: [require('/Users/jdliu/projects/youzan/zanui-weapp/website/plugins/wxapp-demo')],
   docs: {
     base: 'zanui',
+    default: 'icon',
     category: [
       {
         base: 'base',

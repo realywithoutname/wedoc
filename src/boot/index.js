@@ -59,11 +59,18 @@ if (config.lang) {
   routes = flatten(Object.keys(config.lang).map(key => {
     config.lang[key].docs.base = join(key, config.lang[key].docs.base)
     let routes = genRouter(config.lang[key].docs)
+
+    if (config.lang[key].docs.default) {
+      routes.push({path: '/', redirect: {name: config.lang[key].docs.default}})
+    }
     config.lang[key].routes = routes
     return routes
   }))
 } else {
   routes = genRouter(config.docs)
+  if (config.docs.default) {
+    routes.push({path: '/', redirect: {name: config.docs.default}})
+  }
   config.routes = routes
 }
 

@@ -18,6 +18,9 @@ export default {
   },
   watch: {
     '$route' ({name}) {
+      setTimeout(() => {
+        window.document.scrollingElement.scrollTop = 0
+      }, 100)
       this.hasComponent(`x-${name}`)
     }
   },

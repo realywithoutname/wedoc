@@ -25,4 +25,7 @@ export default {
   .side-menus .side-menus {
     padding-left: 15px;
   }
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 </style>

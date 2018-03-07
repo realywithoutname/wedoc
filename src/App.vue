@@ -18,6 +18,9 @@ export default {
     config () {
       return this.$root.getConfig()
     }
+  },
+  mounted () {
+    document.title = this.config.name || this.config.header.logo.title
   }
 }
 </script>
