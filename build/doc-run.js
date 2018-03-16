@@ -16,6 +16,7 @@ if (file.isFile(path.join(processDir, 'wedoc.js')) || file.isFile(path.join(proc
 }
 
 module.exports = function ({docs, config, out, async}, name) {
+  wedocConfig = Object.assign({}, {docs, config, out, async}, wedocConfig)
   docInit(wedocConfig)
 
   if (name === 'build') {

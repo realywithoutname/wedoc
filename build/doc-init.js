@@ -8,9 +8,11 @@ let escodegen = require('escodegen')
 let templateConf = path.join(__dirname, '../doc.config.js.tpl')
 let configFile = null
 
-const configDir = path.resolve(__dirname, '../src')
+let configdir
+
 module.exports = function ({config, docs = [], async: isAsync}) {
   configFile = initConf(config)
+  configdir = path.dirname(configFile)
   const docFiles = getDocFiles(docs)
   const configAst = parseCodeToAST(configFile)
   const code = parseASTToCode(docFiles, configAst, isAsync)
@@ -47,7 +49,7 @@ function getDocFiles (docDir) {
     return mds.reduce((res, f) => {
       let dir = path.dirname(f)
       let key = dir.substr(dir.lastIndexOf('/') + 1)
-      res[key] = path.relative(configDir, f)
+      res[key] = 'REGIN_PLUGIN_PATH$$' + f + '$$./' + path.relative(configdir, f) + '$$'
       return res
     }, {})
   }
@@ -70,6 +72,17 @@ function parseASTToCode (docs, ast) {
               let path = docs[node.name]
               parent.value = esprima.parseScript(`__module__('${path}')`).body[0]
               delete docs[node.name]
+            }
+            if (node.type === 'Identifier' && parent.type === 'Property' && keys.indexOf(node.name) === -1) {
+              let _file = parent.value.arguments[0].value
+              let _path = _file.substr(0, 1) === '/' ? _file : path.join(configdir, _file)
+              console.log(_path, _file)
+              if (!_file || !file.isFile(_path)) {
+                throw new Error('找不到文件' + _file)
+              }
+
+              _path = 'REGIN_PLUGIN_PATH$$' + _path + '$$' + _file + '$$'
+              parent.value = esprima.parseScript(`__module__('${_path}')`).body[0]
             }
           }
         })
@@ -96,8 +109,9 @@ function parseASTToCode (docs, ast) {
       if (node.name === 'plugins') {
         estraverse.replace(parent.value, {
           enter (node) {
-            if (node.type === 'Literal')
-              node.value = node.value.substr(0, 1) === '/' ? node.value : path.join(path.dirname(configFile), node.value)
+            if (node.type === 'Literal') {
+              node.value = 'REGIN_PLUGIN_PATH$$' + (node.value.substr(0, 1) === '/' ? node.value : path.join(path.dirname(configFile), node.value)) + '$$' + node.value + '$$'
+            }
           }
         })
       }
@@ -108,6 +122,12 @@ function parseASTToCode (docs, ast) {
 
 function updateConfig (confFile, code, isAsync) {
   code = code.replace(/__module__/g, isAsync ? 'import' : 'require').replace(/;/g, '')
+  let realyCode = code.replace(/REGIN_PLUGIN_PATH\$\$(.+?)\$\$.*?\$\$/g, function($, $1) {
+    return $1
+  })
+  code = code.replace(/REGIN_PLUGIN_PATH\$\$.+?\$\$(.*?)\$\$/g, function($, $1) {
+    return $1
+  })
   file.mkfile(confFile, '/* eslint-disable */\n' + code)
-  shell.cp(confFile, path.join(__dirname, '../src/doc.config.js'))
+  file.mkfile(path.join(__dirname, '../src/doc.config.js'), '/* eslint-disable */\n' + realyCode)
 }
