@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <doc-header :config="config.header" active="移动端" />
+    <header class="doc-header">
+      <doc-header class="doc-header-container" :config="config.header" active="移动端" />
+    </header>
     <section class="doc-body">
       <div class="doc-menus">
         <side-menu :menus="config.routes || []" />
@@ -30,15 +32,23 @@ export default {
   display: flex;
 }
 
+.doc-header {
+  width: 100%;
+}
+
 @media (min-width: 1024px) {
   .doc-body {
     display: flex;
     width: 1024px;
     margin: 0 auto;
   }
+  .doc-header .doc-header-container {
+    width: 1024px;
+    margin: 0 auto;
+  }
 }
 .doc-menus {
-  width: 200px;
+  width: 244px;
 }
 .doc-content {
   flex: 1;

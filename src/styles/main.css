@@ -1,8 +1,25 @@
-.van-doc-header {
-  position: fixed;
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: PingFang SC,Helvetica Neue,Arial,sans-serif;
+}
+.doc-header {
   background: #fff;
   top: 0;
   z-index: 2;
+  border-bottom: 1px solid #eaeefb;
+  position: fixed;
+}
+
+@media (min-width: 1024px) {
+  .van-doc-header.doc-header-container {
+    width: 100%;
+    position: relative !important;
+    border: none;
+  }
+  .van-doc-header.doc-header-container .van-doc-row {
+    width: 1024px;
+    margin: 0 auto;
+  }
 }
 .van-doc-footer {
   position: relative
@@ -13,7 +30,7 @@
 }
 .side-menus {
   position: fixed;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 60px);
   overflow: auto;
 }
 .demo-view-qrcode {

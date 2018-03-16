@@ -34,53 +34,53 @@ module.exports = {
         base: 'base',
         label: '基础',
         include: {
-          icon: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/icon/README.md'),
-          btn: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/btn/README.md'),
-          helper: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/helper/README.md')
+          icon: require('../../zanui-weapp/packages/icon/README.md'),
+          btn: require('../../zanui-weapp/packages/btn/README.md'),
+          helper: require('../../zanui-weapp/packages/helper/README.md')
         }
       },
       {
         base: 'layout',
         label: '布局',
         include: {
-          row: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/row/README.md'),
-          cell: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/cell/README.md'),
-          card: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/card/README.md'),
-          panel: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/panel/README.md')
+          row: require('../../zanui-weapp/packages/row/README.md'),
+          cell: require('../../zanui-weapp/packages/cell/README.md'),
+          card: require('../../zanui-weapp/packages/card/README.md'),
+          panel: require('../../zanui-weapp/packages/panel/README.md')
         }
       },
       {
         base: 'form',
         label: '表单',
         include: {
-          field: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/field/README.md'),
-          switch: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/switch/README.md'),
-          select: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/select/README.md'),
-          stepper: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/stepper/README.md')
+          field: require('../../zanui-weapp/packages/field/README.md'),
+          switch: require('../../zanui-weapp/packages/switch/README.md'),
+          select: require('../../zanui-weapp/packages/select/README.md'),
+          stepper: require('../../zanui-weapp/packages/stepper/README.md')
         }
       },
       {
         base: 'view',
         label: '展示',
         include: {
-          tag: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/tag/README.md'),
-          badge: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/badge/README.md'),
-          capsule: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/capsule/README.md'),
-          noticebar: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/noticebar/README.md'),
-          steps: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/steps/README.md')
+          tag: require('../../zanui-weapp/packages/tag/README.md'),
+          badge: require('../../zanui-weapp/packages/badge/README.md'),
+          capsule: require('../../zanui-weapp/packages/capsule/README.md'),
+          noticebar: require('../../zanui-weapp/packages/noticebar/README.md'),
+          steps: require('../../zanui-weapp/packages/steps/README.md')
         }
       },
       {
         base: 'interactive',
         label: '交互',
         include: {
-          toast: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/toast/README.md'),
-          popup: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/popup/README.md'),
-          dialog: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/dialog/README.md'),
-          toptips: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/toptips/README.md'),
-          tab: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/tab/README.md'),
-          loadmore: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/loadmore/README.md'),
-          actionsheet: require('/Users/jdliu/projects/youzan/zanui-weapp/packages/actionsheet/README.md')
+          toast: require('../../zanui-weapp/packages/toast/README.md'),
+          popup: require('../../zanui-weapp/packages/popup/README.md'),
+          dialog: require('../../zanui-weapp/packages/dialog/README.md'),
+          toptips: require('../../zanui-weapp/packages/toptips/README.md'),
+          tab: require('../../zanui-weapp/packages/tab/README.md'),
+          loadmore: require('../../zanui-weapp/packages/loadmore/README.md'),
+          actionsheet: require('../../zanui-weapp/packages/actionsheet/README.md')
         }
       }
     ],

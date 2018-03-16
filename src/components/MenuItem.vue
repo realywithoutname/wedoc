@@ -19,12 +19,15 @@ export default {
     display: block;
     color: #455a64;
     font-size: 16px;
-    padding: 8px 20px;
+    padding: 8px 40px;
     line-height: 24px;
+    font-size: 13px;
     transition: all .3s;
   }
   .menu-item a.no-href {
-    color: #455a64bd;
+    color: #455a64;
+    font-weight: 700;
+    font-size: 16px;
   }
   .menu-item.active {
     color: #38f;

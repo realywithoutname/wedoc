@@ -7,6 +7,8 @@ let estraverse = require('estraverse')
 let escodegen = require('escodegen')
 let templateConf = path.join(__dirname, '../doc.config.js.tpl')
 let configFile = null
+
+const configDir = path.resolve(__dirname, '../src')
 module.exports = function ({config, docs = [], async: isAsync}) {
   configFile = initConf(config)
   const docFiles = getDocFiles(docs)
@@ -45,7 +47,7 @@ function getDocFiles (docDir) {
     return mds.reduce((res, f) => {
       let dir = path.dirname(f)
       let key = dir.substr(dir.lastIndexOf('/') + 1)
-      res[key] = f
+      res[key] = path.relative(configDir, f)
       return res
     }, {})
   }

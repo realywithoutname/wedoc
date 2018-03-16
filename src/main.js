@@ -4,20 +4,28 @@ import Vue from 'vue'
 import App from './App'
 import boot from './boot'
 import SideMenu from '@/components/SideMenu'
-import {
-  Header,
-  Footer,
-  Content,
-  Container
-} from 'vant-doc'
+import * as VantDoc from 'vant-doc'
 
+import './styles/main.css'
 import '@/assets/base.css'
+
+let { Header, Footer, Content, Container } = VantDoc
 Vue.config.productionTip = false
 Vue.component('side-menu', Vue.component('side-menu') || SideMenu)
 Vue.component('doc-container', Vue.component('doc-container') || Container)
 Vue.component('doc-content', Vue.component('doc-content') || Content)
 Vue.component('doc-header', Vue.component('doc-header') || Header)
 Vue.component('doc-footer', Vue.component('doc-footer') || Footer)
+
+if (
+  !Vue.component('side-menu') &&
+  !Vue.component('doc-container') &&
+  !Vue.component('doc-content') &&
+  !Vue.component('doc-header') &&
+  !Vue.component('doc-footer')
+) {
+  Vue.use(VantDoc)
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

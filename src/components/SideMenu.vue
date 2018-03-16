@@ -17,9 +17,10 @@ export default {
   .side-menus {
     padding: 15px;
     width: 200px;
-    padding: 20px 0;
+    padding: 20px 0 100px;
     min-width: 240px;
     max-width: 240px;
+    box-sizing: border-box;
   }
 
   .side-menus .side-menus {
