@@ -94,7 +94,7 @@ function parseASTToCode (docs, ast) {
     enter (node, parent) {
       if (node.name === 'docs') {
         let properties = parent.value.properties.filter(prop => prop.key.name === 'include')
-        let newProperties = Object.keys(docs).map(key => `${key}: __module__('${docs[key]}')`)
+        let newProperties = Object.keys(docs).map(key => `'${key}': __module__('${docs[key]}')`)
         if (newProperties.length) {
           newProperties = 'props = {' + newProperties.join() + '}'
           newProperties = esprima.parseScript(newProperties).body[0].expression.right.properties
