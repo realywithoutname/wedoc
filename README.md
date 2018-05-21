@@ -57,21 +57,21 @@
 
 > 文档配置，因为配置需要用到 require 或 import，所以需要使用 js, 而不是 json。
 
-| 字段                    | 类型   | 含义                                                   |
-| ----------------------- | ------ | ------------------------------------------------------ |
-| docs                    | Object | 文档内容和结构配置                                     |
-| name                    | String | 网站 title，默认为 header.logo.title                   |
-| docs.base               | String | 文档根路由                                             |
-| docs.default            | String | 文档首页                                               |
-| docs.include            | Object | markdown 文档集合                                      |
-| docs.category           | Array  | 文档分类                                               |
-| docs.category[].base    | String | 分类子路由                                             |
-| docs.category[].babel   | String | 分类名称                                               |
-| docs.category[].include | Object | markdown 文档集合                                      |
-| header                  | Object | 默认使用 vant-doc 配置                                 |
-| footer                  | Object | 默认使用 vant-doc 配置                                 |
-| lang                    | Object | 多语言支持，使用改属性，前面的属性必须作为该属性的属性 |
-| plugins                 | Array  | 自定义的 vue 组件，支持在 markdown 中使用自定义的组件  |
+| 字段                    | 类型   | 含义                                                                     |
+| ----------------------- | ------ | ------------------------------------------------------------------------ |
+| docs                    | Object | 文档内容和结构配置                                                       |
+| name                    | String | 网站 title，默认为 header.logo.title                                     |
+| docs.base               | String | 文档根路由                                                               |
+| docs.default            | String | 文档首页                                                                 |
+| docs.include            | Object | markdown 文档集合（文档的 key 不支持 '-'，文件中的 '-' 将被替换为 '\_'） |
+| docs.category           | Array  | 文档分类                                                                 |
+| docs.category[].base    | String | 分类子路由                                                               |
+| docs.category[].babel   | String | 分类名称                                                                 |
+| docs.category[].include | Object | markdown 文档集合                                                        |
+| header                  | Object | 默认使用 vant-doc 配置                                                   |
+| footer                  | Object | 默认使用 vant-doc 配置                                                   |
+| lang                    | Object | 多语言支持，使用改属性，前面的属性必须作为该属性的属性                   |
+| plugins                 | Array  | 自定义的 vue 组件，支持在 markdown 中使用自定义的组件                    |
 
 > 多语言支持可以设置 `lang` 字段，
 
